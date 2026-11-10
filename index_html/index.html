@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali's Mood Meter</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/mood-meter.js" defer></script>
+    <script src="js/background-slideshow.js" defer></script>
+    <script src="js/product.js" defer></script>
+    <script src="js/time-theme.js" defer></script>
+</head>
+<body>
+    <div class="background-slideshow" aria-hidden="true">
+        <img id="background-a" class="background-image is-visible" alt="">
+        <img id="background-b" class="background-image" alt="">
+        <div class="background-shade"></div>
+    </div>
+
+    <main class="container">
+        <h1>Ali's Mood Meter</h1>
+        <section class="mood-display">
+            <div
+                id="mood-meter"
+                class="mood-meter"
+                role="meter"
+                aria-label="Ali's mood"
+                aria-valuemin="0"
+                aria-valuemax="4"
+                aria-valuenow="2"
+                aria-valuetext="Okayish"
+            >
+                <div class="mood-meter-track">
+                    <span id="mood-marker" class="mood-meter-marker"></span>
+                </div>
+                <div class="mood-meter-labels" aria-hidden="true">
+                    <span>Horrible</span>
+                    <span>Bad</span>
+                    <span>Okayish</span>
+                    <span>Good</span>
+                    <span>Great</span>
+                </div>
+            </div>
+            <h2 id="mood-message">Loading mood...</h2>
+            <p>Next mood update in <span id="mood-countdown">3:00</span></p>
+        </section>
+
+        <section class="mood-controls" aria-labelledby="controls-title">
+            <h2 id="controls-title">What’s affecting Ali’s mood?</h2>
+
+            <label class="mood-switch">
+                <span>Working with AI</span>
+                <input class="mood-toggle" type="checkbox">
+                <span class="switch-track" aria-hidden="true"></span>
+            </label>
+
+            <label class="mood-switch">
+                <span>Working with HTML</span>
+                <input class="mood-toggle" type="checkbox">
+                <span class="switch-track" aria-hidden="true"></span>
+            </label>
+
+            <label class="mood-switch">
+                <span>Working with wallet</span>
+                <input class="mood-toggle" type="checkbox">
+                <span class="switch-track" aria-hidden="true"></span>
+            </label>
+
+            <label class="mood-switch">
+                <span>Having to keep this up</span>
+                <input class="mood-toggle" type="checkbox">
+                <span class="switch-track" aria-hidden="true"></span>
+            </label>
+        </section>
+
+        <section class="product-card" aria-labelledby="product-title">
+            <div class="product-visual" aria-hidden="true">
+                <div class="device">
+                    <div class="device-screen">
+                        <div class="device-dial">
+                            <span class="dial-needle"></span>
+                            <span class="dial-hub"></span>
+                        </div>
+                        <span class="device-caption">MOOD / 01</span>
+                    </div>
+                    <div class="device-button"></div>
+                </div>
+                <span class="product-orbit product-orbit--one"></span>
+                <span class="product-orbit product-orbit--two"></span>
+            </div>
+
+            <div class="product-copy">
+                <p class="product-eyebrow">MEET YOUR NEW POCKET COMPANION</p>
+                <h2 id="product-title">The Mood Meter</h2>
+                <p class="product-description">
+                    A little real-time read on your day. Check in, spot what shifts your mood,
+                    and take a moment to reset — all in a satisfying chrome-finished desk device.
+                </p>
+                <ul class="product-features">
+                    <li>One-tap mood check-ins</li>
+                    <li>Soft-glow status dial</li>
+                    <li>USB-C rechargeable</li>
+                </ul>
+                <div class="product-purchase">
+                    <div>
+                        <span class="product-price">$89</span>
+                        <span class="product-shipping">Free shipping</span>
+                    </div>
+                    <button class="product-cta" id="preorder-button" type="button">
+                        Pre-order
+                        <span aria-hidden="true">→</span>
+                    </button>
+                </div>
+                <p class="product-note">A concept product. Pre-orders are not open yet.</p>
+            </div>
+        </section>
+    </main>
+
+    <dialog class="product-dialog" id="product-dialog" aria-labelledby="dialog-title">
+        <button class="dialog-close" id="dialog-close" type="button" aria-label="Close">×</button>
+        <p class="product-eyebrow">THANKS FOR YOUR INTEREST</p>
+        <h2 id="dialog-title">Coming soon-ish.</h2>
+        <p>The Mood Meter is a concept device, so checkout isn't connected and no payment will be taken.</p>
+        <button class="dialog-confirm" id="dialog-confirm" type="button">Got it</button>
+    </dialog>
+
+    <div id="photo-popups" class="photo-popups" aria-live="polite">
+        <button id="suck-popups" class="popup-vacuum" type="button">
+            Suck in pop-ups <span aria-hidden="true">↘</span>
+        </button>
+        <button id="eater-button" class="popup-eater-button" type="button">
+            Send the pop-up eater <span aria-hidden="true">✦</span>
+        </button>
+        <span id="eater-status" class="visually-hidden" aria-live="polite"></span>
+    </div>
+</body>
+</html>
