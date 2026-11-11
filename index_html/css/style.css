@@ -147,6 +147,37 @@ h1 {
     color: #7146a6;
 }
 
+.page-navigation {
+    display: flex;
+    justify-content: center;
+    margin: -0.75rem 0 1.5rem;
+}
+
+.page-navigation a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1rem;
+    border: 1px solid #d9c9ed;
+    border-radius: 999px;
+    background: #ffffffb8;
+    color: #593582;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 180ms ease, transform 180ms ease;
+}
+
+.page-navigation a:hover {
+    background: #f3edfb;
+    transform: translateY(-2px);
+}
+
+.page-navigation a:focus-visible {
+    outline: 3px solid #7146a6;
+    outline-offset: 3px;
+}
+
 .mood-display,
 .next-update {
     margin-top: 1.5rem;
