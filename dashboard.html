@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#161624">
+    <title>Mood Journal · Ali's Mood Meter</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="js/dashboard.js" defer></script>
+</head>
+<body>
+    <main class="journal-shell">
+        <header class="journal-header">
+            <a class="brand" href="index.html" aria-label="Ali's Mood Meter home">
+                <span class="brand-mark" aria-hidden="true">m.</span>
+                <span>MOOD METER <span class="brand-divider">/</span> JOURNAL</span>
+            </a>
+            <a class="back-link" href="index.html"><span aria-hidden="true">←</span> Live meter</a>
+        </header>
+
+        <section class="welcome" aria-labelledby="welcome-title">
+            <div>
+                <p class="eyebrow">YOUR PRIVATE SPACE</p>
+                <h1 id="welcome-title">Make room for a check-in.</h1>
+                <p>Notice the moment. Save a little context. See how your days move.</p>
+            </div>
+            <div class="welcome-stamp" aria-hidden="true">
+                <span>PAUSE</span>
+                <strong>01</strong>
+                <span>AND NOTICE</span>
+            </div>
+        </section>
+
+        <div class="journal-grid">
+            <section class="checkin-card" aria-labelledby="checkin-title">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">A MOMENT FOR YOU</p>
+                        <h2 id="checkin-title">How are you feeling?</h2>
+                    </div>
+                    <span class="step-number">01 — 02</span>
+                </div>
+
+                <form id="mood-form">
+                    <fieldset class="mood-picker">
+                        <legend class="visually-hidden">Choose how you feel</legend>
+                        <label class="mood-choice mood-choice--low">
+                            <input type="radio" name="mood" value="0" required>
+                            <span class="mood-face" aria-hidden="true">·﹏·</span>
+                            <span>Rough</span>
+                        </label>
+                        <label class="mood-choice mood-choice--down">
+                            <input type="radio" name="mood" value="1">
+                            <span class="mood-face" aria-hidden="true">﹏</span>
+                            <span>Low</span>
+                        </label>
+                        <label class="mood-choice mood-choice--okay">
+                            <input type="radio" name="mood" value="2">
+                            <span class="mood-face" aria-hidden="true">〜</span>
+                            <span>Okay</span>
+                        </label>
+                        <label class="mood-choice mood-choice--good">
+                            <input type="radio" name="mood" value="3">
+                            <span class="mood-face" aria-hidden="true">⌣</span>
+                            <span>Good</span>
+                        </label>
+                        <label class="mood-choice mood-choice--great">
+                            <input type="radio" name="mood" value="4">
+                            <span class="mood-face" aria-hidden="true">☺</span>
+                            <span>Great</span>
+                        </label>
+                    </fieldset>
+
+                    <fieldset class="context-picker">
+                        <legend>What’s part of the picture?</legend>
+                        <label><input type="checkbox" name="context" value="Work"> <span>Work</span></label>
+                        <label><input type="checkbox" name="context" value="People"> <span>People</span></label>
+                        <label><input type="checkbox" name="context" value="Rest"> <span>Rest</span></label>
+                        <label><input type="checkbox" name="context" value="On the move"> <span>On the move</span></label>
+                        <label><input type="checkbox" name="context" value="Just because"> <span>Just because</span></label>
+                    </fieldset>
+
+                    <label class="note-label" for="mood-note">A note to future you <span>optional</span></label>
+                    <textarea id="mood-note" name="note" rows="3" maxlength="240" placeholder="Anything you want to remember about this moment?"></textarea>
+
+                    <div class="form-footer">
+                        <p id="form-status" role="status" aria-live="polite">Your check-ins stay in this browser.</p>
+                        <button class="save-button" type="submit">Save check-in <span aria-hidden="true">↗</span></button>
+                    </div>
+                </form>
+            </section>
+
+            <aside class="insight-card" aria-labelledby="insight-title">
+                <p class="eyebrow">THE LAST 7 DAYS</p>
+                <h2 id="insight-title">Your rhythm</h2>
+                <div class="average-score">
+                    <strong id="weekly-average">—</strong>
+                    <span>average mood</span>
+                </div>
+                <div class="weekly-chart" id="weekly-chart" aria-label="Mood check-ins from the last seven days"></div>
+                <div class="chart-labels" aria-hidden="true">
+                    <span>LOW</span>
+                    <span>GREAT</span>
+                </div>
+                <p class="insight-caption" id="weekly-count">No check-ins yet. Your first one starts the picture.</p>
+            </aside>
+        </div>
+
+        <section class="history-section" aria-labelledby="history-title">
+            <div class="history-heading">
+                <div>
+                    <p class="eyebrow">YOUR RECENT MOMENTS</p>
+                    <h2 id="history-title">Check-in history</h2>
+                </div>
+                <button class="clear-button" id="clear-history" type="button" hidden>Clear history</button>
+            </div>
+            <ol class="history-list" id="history-list"></ol>
+            <p class="empty-state" id="empty-state">No saved moments yet. When you’re ready, make your first check-in above.</p>
+        </section>
+
+        <footer class="journal-footer">
+            <span>MOOD METER — TAKE IT ONE MOMENT AT A TIME</span>
+            <a href="index.html">Back to live meter <span aria-hidden="true">↗</span></a>
+        </footer>
+    </main>
+</body>
+</html>
