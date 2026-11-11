@@ -91,6 +91,22 @@ a {
     text-decoration: none;
 }
 
+.journal-nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.65rem, 2vw, 1.25rem);
+}
+
+.product-nav-link {
+    color: #d3cae2;
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+
+.product-nav-link:hover {
+    color: var(--accent);
+}
+
 .back-link:hover,
 .journal-footer a:hover {
     color: var(--accent);
@@ -404,7 +420,8 @@ a {
 .back-link:focus-visible,
 .brand:focus-visible,
 .journal-footer a:focus-visible,
-.history-delete:focus-visible {
+.history-delete:focus-visible,
+.product-nav-link:focus-visible {
     outline: 3px solid var(--accent);
     outline-offset: 3px;
 }
@@ -502,6 +519,286 @@ a {
 
 .history-section {
     margin-top: clamp(2.5rem, 7vw, 4.5rem);
+}
+
+.journal-product {
+    display: grid;
+    grid-template-columns: minmax(200px, 0.75fr) minmax(0, 1.25fr);
+    align-items: center;
+    gap: clamp(1.5rem, 5vw, 3rem);
+    margin-top: clamp(2.5rem, 7vw, 4.5rem);
+    padding: clamp(1.4rem, 5vw, 2.7rem);
+    overflow: hidden;
+    border: 1px solid #ffffff20;
+    border-radius: 24px;
+    background:
+        radial-gradient(ellipse at 18% 50%, #74529a38, transparent 48%),
+        linear-gradient(145deg, #242332, #1d1c29);
+    box-shadow: 0 20px 60px #00000020;
+}
+
+.journal-product-visual {
+    position: relative;
+    display: grid;
+    min-height: 250px;
+    place-items: center;
+    perspective: 700px;
+}
+
+.journal-device {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    width: 184px;
+    height: 184px;
+    place-items: center;
+    border: 8px solid #dfe0e5;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #fff 5%, #aeb1bb 22%, #f9f9fb 38%, #979aa5 58%, #fff 76%, #aeb1bb);
+    box-shadow: inset 0 0 0 2px #fff, inset 0 0 18px #3c374533, 0 22px 35px #0005;
+    animation: journal-device-spin 24s linear infinite;
+}
+
+.journal-device-screen {
+    display: grid;
+    width: 138px;
+    height: 138px;
+    place-items: center;
+    border: 5px solid #f8f8fb;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 25%, #fff, #e8e4ef 68%, #d2ceda);
+    box-shadow: inset 0 4px 12px #34245a30;
+    backface-visibility: hidden;
+    transform: translateZ(5px) rotate(-12deg);
+}
+
+.journal-device-dial {
+    width: 88px;
+    height: 88px;
+    border: 9px solid transparent;
+    border-radius: 50%;
+    background:
+        linear-gradient(#f7f4fb, #f7f4fb) padding-box,
+        conic-gradient(from 220deg, #ef4056 0deg, #ffab4a 70deg, #f4d45c 130deg, #6cc77c 205deg, #20b978 280deg, transparent 281deg) border-box;
+}
+
+.journal-device-screen > span {
+    margin-top: -1.2rem;
+    color: #777181;
+    font-size: 0.48rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+}
+
+.journal-device-button {
+    position: absolute;
+    right: -17px;
+    width: 9px;
+    height: 30px;
+    border: 1px solid #aeb1bb;
+    border-radius: 0 5px 5px 0;
+    background: linear-gradient(90deg, #aeb1bb, #fff, #aeb1bb);
+}
+
+.journal-product-orbit {
+    position: absolute;
+    width: 245px;
+    height: 245px;
+    border: 1px dashed #c6a5ff38;
+    border-radius: 50%;
+}
+
+.journal-product-copy h2 {
+    margin: 0;
+    color: #f3f0f9;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    letter-spacing: -0.05em;
+}
+
+.journal-product-copy > p:not(.eyebrow):not(.journal-product-note) {
+    margin: 0.8rem 0 1rem;
+    color: #c1bbcd;
+    line-height: 1.6;
+}
+
+.journal-product-copy ul {
+    display: grid;
+    gap: 0.45rem;
+    margin: 0;
+    padding: 0;
+    color: #e3deea;
+    font-size: 0.88rem;
+    list-style: none;
+}
+
+.journal-product-copy li::before {
+    content: "✓";
+    margin-right: 0.55rem;
+    color: #65cfad;
+    font-weight: 800;
+}
+
+.journal-product-purchase {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.35rem;
+    padding-top: 1.1rem;
+    border-top: 1px solid #ffffff25;
+}
+
+.journal-product-purchase > div {
+    display: grid;
+    gap: 0.2rem;
+}
+
+.journal-product-purchase strong {
+    color: #f3f0f9;
+    font-size: 1.65rem;
+}
+
+.journal-product-purchase > div > span {
+    color: #a6a2b3;
+    font-size: 0.75rem;
+}
+
+.journal-product-note {
+    margin: 0.65rem 0 0;
+    color: #a6a2b3;
+    font-size: 0.72rem;
+}
+
+.journal-product-dialog {
+    position: relative;
+    width: min(420px, calc(100% - 2rem));
+    padding: 2rem;
+    border: 1px solid #ffffff20;
+    border-radius: 22px;
+    background: linear-gradient(145deg, #292737, #1d1c29);
+    box-shadow: 0 24px 80px #0009;
+    color: #d0c9db;
+}
+
+.journal-product-dialog::backdrop {
+    background: #090812b8;
+    backdrop-filter: blur(4px);
+}
+
+.journal-product-dialog h2 {
+    margin: 0;
+    color: #f3f0f9;
+}
+
+.journal-product-dialog p:not(.eyebrow) {
+    line-height: 1.55;
+}
+
+.journal-product-dialog .save-button {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.journal-dialog-close {
+    position: absolute;
+    top: 0.8rem;
+    right: 0.8rem;
+    width: 2rem;
+    height: 2rem;
+    border: 0;
+    border-radius: 50%;
+    background: #ffffff19;
+    color: #f0e9fb;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.journal-dialog-close:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+}
+
+.sausage-launch {
+    position: fixed;
+    z-index: 12;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    min-height: 46px;
+    padding: 0.7rem 1rem;
+    border: 1px solid #ffffff50;
+    border-radius: 999px;
+    background: linear-gradient(110deg, #9d493e, #d47855);
+    box-shadow: 0 8px 24px #0007;
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+    transition: filter 160ms ease, transform 160ms ease;
+}
+
+.sausage-launch:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+.sausage-launch:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+}
+
+.sausage-layer {
+    position: fixed;
+    z-index: 11;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.flying-sausage {
+    position: fixed;
+    width: 78px;
+    height: 28px;
+    border: 2px solid #8e3f31;
+    border-radius: 50% / 55%;
+    background:
+        radial-gradient(ellipse at 26% 38%, #f4b18488 0 3%, transparent 13%),
+        radial-gradient(ellipse at 72% 62%, #792d2480 0 4%, transparent 14%),
+        linear-gradient(180deg, #e58b65 0%, #bd5845 28%, #a94339 64%, #d46b50 100%);
+    box-shadow: inset 0 3px 4px #ffc39a70, inset 0 -4px 5px #732b2966, 0 6px 12px #0005;
+    will-change: left, top, transform;
+}
+
+.flying-sausage::before,
+.flying-sausage::after {
+    position: absolute;
+    top: 7px;
+    width: 4px;
+    height: 10px;
+    border: 1px solid #e8a47a;
+    border-radius: 50%;
+    content: "";
+}
+
+.flying-sausage::before {
+    left: -4px;
+    transform: rotate(-15deg);
+}
+
+.flying-sausage::after {
+    right: -4px;
+    transform: rotate(15deg);
+}
+
+@keyframes journal-device-spin {
+    from {
+        transform: rotateX(8deg) rotateY(0deg) rotateZ(-8deg);
+    }
+
+    to {
+        transform: rotateX(8deg) rotateY(360deg) rotateZ(-8deg);
+    }
 }
 
 .history-heading {
@@ -655,6 +952,22 @@ a {
     .insight-card {
         min-height: 290px;
     }
+
+    .journal-product {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .journal-product-visual {
+        min-height: 220px;
+    }
+
+    .journal-product-copy ul {
+        width: fit-content;
+        margin: 0 auto;
+        text-align: left;
+    }
 }
 
 @media (max-width: 520px) {
@@ -679,6 +992,14 @@ a {
 
     .back-link {
         font-size: 0.78rem;
+    }
+
+    .journal-nav {
+        gap: 0.55rem;
+    }
+
+    .product-nav-link {
+        font-size: 0.72rem;
     }
 
     .welcome-stamp {
@@ -743,6 +1064,11 @@ a {
         flex-direction: column;
         gap: 0.7rem;
     }
+
+    .sausage-launch {
+        right: 0.75rem;
+        bottom: 0.75rem;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -753,5 +1079,9 @@ a {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+    }
+
+    .journal-device {
+        animation: none;
     }
 }

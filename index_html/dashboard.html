@@ -6,7 +6,9 @@
     <meta name="theme-color" content="#161624">
     <title>Mood Journal · Ali's Mood Meter</title>
     <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/weather.css">
     <script src="js/dashboard.js" defer></script>
+    <script src="js/weather.js" defer></script>
 </head>
 <body>
     <main class="journal-shell">
@@ -15,7 +17,18 @@
                 <span class="brand-mark" aria-hidden="true">m.</span>
                 <span>MOOD METER <span class="brand-divider">/</span> JOURNAL</span>
             </a>
-            <a class="back-link" href="index.html"><span aria-hidden="true">←</span> Live meter</a>
+            <div class="weather-widget" id="weather-widget" aria-live="polite">
+                <span class="weather-icon" id="weather-icon" aria-hidden="true">⛅</span>
+                <span class="weather-copy">
+                    <strong>Hamburg <span id="weather-temperature">—</span></strong>
+                    <span id="weather-description">Loading local weather…</span>
+                </span>
+                <span class="weather-source">Live · Open-Meteo</span>
+            </div>
+            <nav class="journal-nav" aria-label="Site pages">
+                <a class="product-nav-link" href="#mood-meter-product">The device</a>
+                <a class="back-link" href="index.html"><span aria-hidden="true">←</span> Live meter</a>
+            </nav>
         </header>
 
         <section class="welcome" aria-labelledby="welcome-title">
@@ -118,10 +131,56 @@
             <p class="empty-state" id="empty-state">No saved moments yet. When you’re ready, make your first check-in above.</p>
         </section>
 
+        <section class="journal-product" id="mood-meter-product" aria-labelledby="journal-product-title">
+            <div class="journal-product-visual" aria-hidden="true">
+                <div class="journal-device">
+                    <div class="journal-device-screen">
+                        <div class="journal-device-dial"></div>
+                        <span>MOOD / 01</span>
+                    </div>
+                    <i class="journal-device-button"></i>
+                </div>
+                <span class="journal-product-orbit"></span>
+            </div>
+            <div class="journal-product-copy">
+                <p class="eyebrow">MEET YOUR POCKET COMPANION</p>
+                <h2 id="journal-product-title">The Mood Meter</h2>
+                <p>A little real-time read on your day. Check in, spot what shifts your mood, and take a moment to reset — in a satisfying chrome-finished desk device.</p>
+                <ul>
+                    <li>One-tap mood check-ins</li>
+                    <li>Soft-glow status dial</li>
+                    <li>USB-C rechargeable</li>
+                </ul>
+                <div class="journal-product-purchase">
+                    <div>
+                        <strong>$89</strong>
+                        <span>Free shipping</span>
+                    </div>
+                    <button class="save-button" id="preorder-button" type="button">Pre-order <span aria-hidden="true">→</span></button>
+                </div>
+                <p class="journal-product-note">A concept product. Pre-orders are not open yet.</p>
+            </div>
+        </section>
+
         <footer class="journal-footer">
             <span>MOOD METER — TAKE IT ONE MOMENT AT A TIME</span>
             <a href="index.html">Back to live meter <span aria-hidden="true">↗</span></a>
         </footer>
     </main>
+    <button class="sausage-launch" id="sausage-launch" type="button">
+        Toss a sausage <span aria-hidden="true">↗</span>
+    </button>
+    <span class="visually-hidden" id="sausage-status" role="status" aria-live="polite"></span>
+    <div class="sausage-layer" id="sausage-layer" aria-hidden="true"></div>
+    <dialog class="journal-product-dialog" id="product-dialog" aria-labelledby="dialog-title">
+        <button class="journal-dialog-close" id="dialog-close" type="button" aria-label="Close">×</button>
+        <p class="eyebrow">THANKS FOR YOUR INTEREST</p>
+        <h2 id="dialog-title">Coming soon-ish.</h2>
+        <p>The Mood Meter is a concept device, so checkout isn't connected and no payment will be taken.</p>
+        <button class="save-button" id="dialog-confirm" type="button">Got it</button>
+    </dialog>
+    <div class="weather-effects" aria-hidden="true"></div>
+    <script src="js/product.js" defer></script>
+    <script src="js/sausages.js" defer></script>
 </body>
 </html>
